@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="60" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="MarsoberFmag" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsoberFmag.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="MarsoberF" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsoberF.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="3" name="MarsunterF" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsunterF.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="8" name="eis" tilewidth="32" tileheight="32">
+  <image source="../assets/eis.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="12" name="MarsunterF" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsunterF.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="17" name="MarsunterF_n" tilewidth="16" tileheight="16">
+  <image source="../assets/MarsoberF/MarsunterF_n.png" width="160" height="64"/>
+  <tile id="37">
+   <properties>
+    <property name="type" value="marsUntfSolid"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Kachelebene 1" width="60" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztzwENADAIwDBU4V/adbB3yQR0Z2bt4NV4eUvx8pbi5S3Fy1uKl7cUL28pXt5SvLyleHlL8fKW4uUtxctbipe3FC9vKV7eUry8pXh5S/H+6bWv/wAvtJBJ
+  </data>
+ </layer>
+</map>
