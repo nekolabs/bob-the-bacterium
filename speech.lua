@@ -63,7 +63,7 @@ I'll instruct you!]],
 
   for i=1,#text do -- print text (string in table text is being printed when button is clicked) 
     if hitButton == i then lg.print(text[i], 340,86)
-      if i >= 6 then
+      if i >= #text then
         Gamestate.switch(Lvl1) 
       end
     end
