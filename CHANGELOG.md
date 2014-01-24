@@ -1,9 +1,15 @@
 # Changelog.md
 Released Version 0.09 BETA Codename Curie
 
-2014-01-17 (still 0.095B)
-* btb should now work with löve 0.9.0 (Baby Inspector)
+## JANUARY 2014 (still 0.095B)
 
+2014-01-17 
+ * btb should now work with löve 0.9.0 (Baby Inspector)
+
+2014-01-24
+ * DRYed speech.lua a bit and added back button
+ * cleaned some code files (gee, what a mess..)
+ 
 ## Features and Fixes v0.095B (latest)
 * Fixed wrong player velocity which prevented him from resolving collision in one cycle
 * Player Life works now properly

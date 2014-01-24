@@ -16,5 +16,4 @@ Bob needs to fight and get Alice back now and for this task Trent will instruct 
   - Follow the Link and Download either Source or bin/exe: https://dl.dropboxusercontent.com/u/157198308/Website/index.html
   - Linux and OS X users just use the .love
 
-Have fun playing Bob The Bacterium! (or don't it's your choice) 
-
+We hope you have fun while playing! ^-^ 

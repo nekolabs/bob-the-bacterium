@@ -1,5 +1,4 @@
--- player.lua
--- Beloved Bob
+-- player.lua belov bob (sry for the mess)
 
 local displayW, displayH = love.graphics.getWidth(), love.graphics.getHeight();
 function player_load()
@@ -8,101 +7,59 @@ function player_load()
   -- player anims
   -------------------------------
   -- load them in a table for each direction which is important for now
-  playerleft = {}
- 
+  playerleft = {}  
   -- loads the 5 left pics into an array
-  for i=1,5 do
-	playerleft[i] = love.graphics.newImage("assets/player/animations/playerleft" .. i .. ".png")
-  end
+  for i=1,5 do playerleft[i] = love.graphics.newImage("assets/player/animations/playerleft" .. i .. ".png") end
   
   playeright = {}
-  for i=1,5 do
-	playeright[i] = love.graphics.newImage("assets/player/animations/playeright" .. i .. ".png")
-  end  
+  for i=1,5 do 	playeright[i] = love.graphics.newImage("assets/player/animations/playeright" .. i .. ".png") end  
   
   playerstand = {}
-  for i=1,5 do
-	playerstand[i] = love.graphics.newImage("assets/player/animations/playerstand" .. i .. ".png")
-  end
+  for i=1,5 do playerstand[i] = love.graphics.newImage("assets/player/animations/playerstand" .. i .. ".png") end
   
   -- following the shooting animations (left and right)
   playershootleft = {}
   
   -- load the 6 left shoot pics into an array
-  for i=1,6 do
-	playershootleft[i] = love.graphics.newImage("assets/player/animations/shooting/playershootleft" .. i .. ".png")
-  end 
+  for i=1,6 do playershootleft[i] = love.graphics.newImage("assets/player/animations/shooting/playershootleft" .. i .. ".png") end 
   
   playershootright = {}
-  for i=1,6 do
-	playershootright[i] = love.graphics.newImage("assets/player/animations/shooting/playershootright" .. i .. ".png")
-  end 
-  
-  -- "pre-settings" (used in update callback). 
-  -- in these lines the timers and the starting directions of the players determined
-  -- bob begins with standing img 1
-  headingFor = playerstand[1]
-  
-  -- CountThrough counts through the player pictures later on it's possible to 
-  -- override a picture with another (if faster then the animation of the player'll
-  -- Starts with 1 and counts to 5
-  animCountThrough = 1
-  
-  -- startCountOn's like the timer that'll increase in the update(dt) callback
-  -- it's necessary to count through the pictures with animCountThrough within a specific time
-  animStartCountOn = 0
+  for i=1,6 do playershootright[i] = love.graphics.newImage("assets/player/animations/shooting/playershootright" .. i .. ".png") end 
+ 
+
+  headingFor, animCountThrough, animStartCountOn = playerstand[1],1,0 -- hold current image for anim
  
   -- load the skins for the special items 
   -- invinc 
-  playerleftInvinc = {}
-  for i=1,5 do
-	playerleftInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/playerleft" .. i .. ".png")
-  end
+  playerleftInvinc = {} 
+  for i=1,5 do playerleftInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/playerleft" .. i .. ".png") end
   
   playerightInvinc = {}
-  for i=1,5 do
-	playerightInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/playeright" .. i .. ".png")
-  end 
+  for i=1,5 do playerightInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/playeright" .. i .. ".png") end 
   playerstandInvinc = {}
-  for i=1,5 do
-	playerstandInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/playerstand" .. i .. ".png")
-  end
+  for i=1,5 do playerstandInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/playerstand" .. i .. ".png") end
   
   -- Shooting in Invinc mode
   playershootleftInvinc = {}
-  for i=1,6 do
-	playershootleftInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/shooting/playershootleft" .. i .. ".png")
-  end 
+  for i=1,6 do playershootleftInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/shooting/playershootleft" .. i .. ".png") end 
   playershootrightInvinc = {}
-  for i=1,6 do
-	playershootrightInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/shooting/playershootright" .. i .. ".png")
-  end 
+  for i=1,6 do playershootrightInvinc[i] = love.graphics.newImage("assets/player/aniInvinc/shooting/playershootright" .. i .. ".png") end 
   
   -- load the skins for the special items 
   -- invis 
   playerleftInvis = {}
-  for i=1,5 do
-	playerleftInvis[i] = love.graphics.newImage("assets/player/aniInvis/playerleft" .. i .. ".png")
-  end
+  for i=1,5 do playerleftInvis[i] = love.graphics.newImage("assets/player/aniInvis/playerleft" .. i .. ".png") end
   
   playerightInvis = {}
-  for i=1,5 do
-	playerightInvis[i] = love.graphics.newImage("assets/player/aniInvis/playeright" .. i .. ".png")
-  end 
+  for i=1,5 do playerightInvis[i] = love.graphics.newImage("assets/player/aniInvis/playeright" .. i .. ".png") end 
   playerstandInvis = {}
-  for i=1,5 do
-	playerstandInvis[i] = love.graphics.newImage("assets/player/aniInvis/playerstand" .. i .. ".png")
-  end
+  for i=1,5 do playerstandInvis[i] = love.graphics.newImage("assets/player/aniInvis/playerstand" .. i .. ".png") end
   
   -- Shooting in Invinc mode
   playershootleftInvis = {}
-  for i=1,6 do
-	playershootleftInvis[i] = love.graphics.newImage("assets/player/aniInvis/shooting/playershootleft" .. i .. ".png")
-  end 
+  for i=1,6 do playershootleftInvis[i] = love.graphics.newImage("assets/player/aniInvis/shooting/playershootleft" .. i .. ".png") end 
   playershootrightInvis = {}
-  for i=1,6 do
-	playershootrightInvis[i] = love.graphics.newImage("assets/player/aniInvis/shooting/playershootright" .. i .. ".png")
-  end 
+  for i=1,6 do playershootrightInvis[i] = love.graphics.newImage("assets/player/aniInvis/shooting/playershootright" .. i .. ".png") end 
   
   pHeight = playerstand[1]:getHeight()
   pWidth = playerstand[1]:getWidth()
@@ -141,12 +98,9 @@ function player_load()
 end
 function player_update(dt)
 	collectgarbage(collect);
-		---------------------------------------------------------------------
-		-- Movement of Player: X and Y direction with "gravity"
-		---------------------------------------------------------------------
-		-- X Direction
-		if love.keyboard.isDown('right','d') then
-			player.facing = "right" 
+	-- movement of player 
+    if love.keyboard.isDown('right','d') then
+	    player.facing = "right" 
 	
 		    -- math.abs not important, just here for testing 
 			dx = math.abs(vx*dt)

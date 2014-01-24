@@ -1,11 +1,8 @@
--- coins.lua
--- coins are created and collide with the player (increases score) ... and they spin around
+-- coins.lua coins are created and collide with the player (increases score) ... and they spin around
 
--- Snippet for Box Collision
 require("libsAndSnippets/BoundingBox")
 
--- Animation of Coins
-coins = {}
+coins = {} -- table holding parts of 1 coin for animation
 for i=1,11 do 
 	coins[i] = love.graphics.newImage("assets/coinAnimation/coin" .. i .. ".png")
 end
@@ -15,11 +12,8 @@ coinSound = love.audio.newSource("sfx/coin1.ogg")
 coinSound:setLooping(false)
 
 -- starts anim with img1 of 11
-coinHead = coins[1]
-coinCountThrough = 1 
-coinCountOn      = 0
-
-coin = {}
+coinHead, coinCountThrough, coinCountOn= coins[1], 1, 0
+coin = {} -- table holding the coins
 
 function createNewCoin(x, y, width, height)
 	table.insert(coin, { x=x, y=y, width = 12, height = 16} )

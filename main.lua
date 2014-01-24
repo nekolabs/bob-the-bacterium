@@ -71,10 +71,6 @@ function love.keyreleased(key)
 	player_keyreleased(key);
 	bullet_shoot(key);
 end 
---function love.focus(f)
---  if not f then gameIsPaused = true;
---  else gameIsPaused = false; end
---end
 function love.keypressed(k) 
   if k == 'p' then gameIsPaused = not gameIsPaused; end
 end
@@ -84,7 +80,6 @@ function love.focus(f)
     else gameIsPaused = false;
   end
 end
---used for camera and player
 function math.clamp(x, min, max)
     return x < min and min or (x > max and max or x)
 end

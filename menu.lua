@@ -1,8 +1,7 @@
--- menu.lua
--- With Start, Quit, Options and Credits Buttons
+-- menu.lua  Start, Quit, Options and Credits Buttons
 
-menu = Gamestate.new();
-local ver, wiWidth, wiHeight  = "0.095B Curie", love.graphics.getWidth(), love.graphics.getHeight(); 
+menu = Gamestate.new()
+local ver, lg = "0.095B Curie", love.graphics 
 function menu:init()
     self.menuBg, self.logo = love.graphics.newImage("assets/bg.jpg"), love.graphics.newImage("assets/logo.png");
 	
@@ -33,8 +32,7 @@ function menu:draw()
 	love.graphics.draw(menu.menuBg, 0, 0);
 	love.graphics.draw(menu.logo, 127.5, 25);
 	
-	-- 0 = rotation, .866, .866 = scaleX(text), scaleY(text)
-	love.graphics.print(ver, wiWidth/2 - 22.5, wiHeight/(3/2.85), 0, .866, .866);
+	love.graphics.print(ver, lg.getWidth()/2 - 22.5, lg.getHeight()/(3/2.85), 0, .866, .866);
 	
 	-- Print Button with the related values from the table
 	for i,v in ipairs(MenuButton) do
