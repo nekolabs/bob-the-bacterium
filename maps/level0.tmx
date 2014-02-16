@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="35" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="MarsoberF" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsoberF.png" trans="ffffff" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="marsObfSolid"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="2" name="MarsunterF_n" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsunterF_n.png" trans="ffffff" width="160" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="marsObSolid"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="marsReSolid"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="type" value="marsUntSolid"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="type" value="marsLiSolid"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="type" value="marsLiUSolid"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="type" value="marsLiObSolid"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="type" value="marsReObSolid"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="type" value="marsReUSolid"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="type" value="marsUntfSolid"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="TutLayer" width="25" height="35">
+  <properties>
+   <property name="" value=""/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt17sNACAAAlH86/4LS+kCFCZHcvWrOZJ6sOmaK8HGYySGgYGBgYGBgYGBgfGfkfwf29Vgy12kBQId
+  </data>
+ </layer>
+</map>

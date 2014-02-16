@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="112" height="55" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Eis" tilewidth="32" tileheight="32">
+  <image source="../assets/eis.png" trans="ffffff" width="128" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="IceOb"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="IceRe"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="type" value="IceUnt"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="type" value="IceLi"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="5" name="MarsoberF" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsoberF.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="marsObfSolid"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="6" name="MarsunterF_n" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsunterF_n.png" width="160" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="marsObSolid"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="marsReSolid"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="type" value="marsUntSolid"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="type" value="marsLiSolid"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="type" value="marsLiUSolid"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="type" value="marsLiObSolid"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="type" value="marsReObSolid"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="type" value="marsReUSolid"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="type" value="marsUntfSolid"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="16" name="jumpplatform" tilewidth="64" tileheight="16">
+  <image source="../assets/jumpplatform.png" trans="ffffff" width="64" height="16"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="platformSpeedy"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="17" name="endflagRe" tilewidth="48" tileheight="229">
+  <image source="../assets/endflagRe.png" width="48" height="229"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="instruction1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="18" name="MarsOberFSpeedx" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsOberFSpeedx.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="marsOberFSpeedX"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="19" name="MarsOberFSpeedY" tilewidth="32" tileheight="32">
+  <image source="../assets/MarsoberF/MarsOberFSpeedY.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="marsOberFSpeedY"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="20" name="invincibleTip" tilewidth="200" tileheight="125">
+  <image source="../assets/invincibleTip.png" trans="000000" width="200" height="125"/>
+ </tileset>
+ <tileset firstgid="21" name="stars" tilewidth="3584" tileheight="1760">
+  <image source="../assets/stars.png" width="3584" height="1760"/>
+ </tileset>
+ <layer name="Background" width="112" height="55">
+  <data encoding="base64" compression="zlib">
+   eJzt0bENwDAMBDEjyAref9VMkMqFcRBZqnrh1gKY4b09gCP6tenXpl+bfm36tenXpl+bfm36tenXpl+bfm3T+9X/r+8/Vf+/vn+K5+euX4N+bfq16demX5t+bfq16demX5t+bfq16demX5t+bfq16demX5t+bfoBAAAAAAAAzLJvD+DIB1q1ANA=
+  </data>
+ </layer>
+ <layer name="Kachelebene 1" width="112" height="55">
+  <data encoding="base64" compression="zlib">
+   eJztm9kOgjAQRUfjviRu//+tYiJxQgQKpbZXzklueJCl9rB3OJvZjkjmUGVbZU0ks3f+4DesbJr+xl8e8KcN/rTBnzb406bp7zFyPfjLA8efNvjTBn/a4E8b/GmDP23wZ7ZoRIm5+6v/v48S+MOf2XB/dV/dCsi3scwp1393GcOrPcuW33L7m1ua19qQ4E8/qfxd3lP8tSeWlP58O/E3vbu6r0o5f/rjFcIoyd/U++YcKMmfnx/CwJ82+NMGf9rgTxv8aYM/bXL4u3TPjr8BxPrrc1Fvw/vre0bHXzix/kLel3D+TEesv807fdvAXxq4f9EGf9AH/rTBnyYx9ROQH/+sx/i7HkP9Mf5eFkP9+eWgmxT1VF3Bny740wZ/2uBPG/xpgz9t8KcN/rQZU/9yTd0oCKat/uWfk/ob7hzvX072qbcgWjlWeQIzlh3N
+  </data>
+ </layer>
+</map>

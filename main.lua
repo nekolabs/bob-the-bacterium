@@ -1,85 +1,94 @@
--- BTB 0.095B MIT License 
+-- BTB 0.095B MIT License created by nekolabs (ElHuron and Gaichu) former jamlabs 
+-- Thank you so much for playing (and reading the source code all the more)! 
 
--- <Pool of Requirements>
-love.graphics.setDefaultFilter("nearest", "nearest") --filter mode used when scaling images down, up
--- Simplification
-require("playerCollide");
---Enemies
-require("Enemies/EasyEnemy");
-require("Enemies/Boss");
-require("Enemies/FollowerEnemy");
-require("Enemies/turret");
-require("Enemies/turretShot");
-require("Enemies/drakMallet1");
--- Player and Alice
-require("player");
-require("Alice");
--- "Objects"
-require("bullet");
-require("coins");
--- Gamestates (note Ver. 0.08A: gotIt.lua and death.lua are merged)
-Gamestate = require("libsAndSnippets/hump/gamestate")
-require("menu");
-require("Credits");
-require("Settings");
-require("gotIt");
-require("thankYou");
-require("Fin");
--- Libraries and Snippets
-require("libsAndSnippets/camera")
-require("libsAndSnippets/BoundingBox") -- Collisions between Boxes
-atl    = require("libsAndSnippets/ATL") -- Advanced Tiled Loader
-entity = require("libsAndSnippets/atc") -- Advanced Tiled Collider
---Levels (bonus Lv. System [ON HIATUS]
+local lg,la = love.graphics,love.audio
+lg.setDefaultFilter("nearest", "nearest") -- filter mode used when scaling images down, up
+
+local paths = { 'lua/enemies/', 'lua/player/', 'lua/libraries/', 'lua/startscreen_options/', 'lua/ending/', 'lua/levels/', 'lua/abilities/', 'lua/intro/' } -- just some shortenings 
+local pathToEnemySrc, pathToPlSrc, pathToLibs, pathToOptionSrc, pathToEndSrc, pathToLvlSrc, pathToAbilSrc, pathToIntroSrc = unpack(paths)
+
+-- pool of requirements (names should be quite obvious)
+require(pathToLibs .. 'camera')
+atl = require 'lua/libraries/ATL' -- used for maps
+loader = require 'lua/libraries/ATL.Loader' 
+loader.path = 'maps/'
+atlMap = atl.Loader.load('level0.tmx') -- example map for math in player, bullet file etc
+require(pathToLibs .. 'BoundingBox') 
+entity = require(pathToLibs .. 'atc')
+
+require(pathToEnemySrc .. 'easyEnemy')
+require(pathToEnemySrc .. 'followerEnemy')
+require(pathToEnemySrc .. 'turret')
+require(pathToEnemySrc .. 'turretShot')
+require(pathToEnemySrc .. 'drakMallet1')
+require(pathToEnemySrc .. 'boss')
+
+require(pathToPlSrc .. 'playerCollide') 
+require(pathToPlSrc .. 'player')
+require(pathToPlSrc .. 'bullet') 
+
+Gamestate = require(pathToLibs .. 'hump/gamestate')
+
+require(pathToOptionSrc .. 'menu')
+require(pathToOptionSrc .. 'credits')
+require(pathToOptionSrc .. 'Settings')
+require(pathToOptionSrc .. 'gotIt')
+
+require(pathToEndSrc .. 'Fin')
+require(pathToEndSrc .. 'thankYou')
+
+require 'lua/alice'
+require 'lua/coins'
+require 'lua/ingameMenu'
+
 level = {}
 for i=1,8 do 
-	level[i] = require("Levels/level" .. i);
+	level[i] = require(pathToLvlSrc .. 'level' .. i) -- require all the levels in levels/ 
 end
 speech = {}
-require("speech");
+require('lua/speech')
 ability = {}
 for i=0,1 do
-	ability[i] = require("abilities/ability" .. i);
+	ability[i] = require(pathToAbilSrc .. 'ability' .. i)
 end
 intro = {}
 for i=1,2 do
-	intro[i] = require("Intro/intro" .. i);
+	intro[i] = require(pathToIntroSrc .. 'intro' .. i)
 end
 function love.load()
   -- Pause boolean
-  gameIsPaused = false;
+  gameIsPaused = false
   
   -- Gamestate Switching
-  Gamestate.registerEvents();
-  Gamestate.switch(intro);
+  Gamestate.registerEvents()
+  Gamestate.switch(intro)
 
   -- icon
-  local iconData = love.image.newImageData("assets/icon.png");
-  love.window.setIcon(iconData);
+  local iconData = love.image.newImageData("assets/icon.png")
+  love.window.setIcon(iconData)
   
-  player_load();
+  player_load()
+  ingameMenu_init()
 
   -- Sound Effect Jumping and (gun is loaded in bullet.lua)
-  wonSound, bounceSound = love.audio.newSource("sfx/Endflag.ogg"), love.audio.newSource("sfx/bounce3.ogg");
-  bounceSound:setVolume(.085);
-  gunshot:setVolume(.475);
+  wonSound, bounceSound = la.newSource('sfx/Endflag.ogg'), la.newSource('sfx/bounce3.ogg')
+  local isBounceVol = .085
+  bounceSound:setVolume(isBounceVol)
+  --gunshot:setVolume(isGunVol)
 end
 function love.update(dt)
-	collectgarbage();
+	collectgarbage()
+end
+function love.draw()
+  ingameMenu_draw()
 end
 function love.keyreleased(key)
-	player_keyreleased(key);
-	bullet_shoot(key);
+	player_keyreleased(key)
+	bullet_shoot(key)
 end 
-function love.keypressed(k) 
-  if k == 'p' then gameIsPaused = not gameIsPaused; end
-end
 function love.focus(f)
-  if not f then
-    gameIsPaused = true;
-    else gameIsPaused = false;
-  end
+  ingameMenu_focus(f)
 end
-function math.clamp(x, min, max)
+function math.clamp(x, min, max) -- used with cam lib
     return x < min and min or (x > max and max or x)
 end

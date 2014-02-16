@@ -1,6 +1,12 @@
 # Changelog.md
 Released Version 0.09 BETA Codename Curie
 
+## FEBRUARY 2014 (still 0.095B)
+
+2014-02-16 
+ * tried to clear directory structure a bit
+ * changed some little things. tried to polish a bit 
+
 ## JANUARY 2014 (still 0.095B)
 
 2014-01-17 
