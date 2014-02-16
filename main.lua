@@ -79,9 +79,6 @@ end
 function love.update(dt)
 	collectgarbage()
 end
-function love.draw()
-  ingameMenu_draw()
-end
 function love.keyreleased(key)
 	player_keyreleased(key)
 	bullet_shoot(key)
