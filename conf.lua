@@ -1,5 +1,5 @@
 -- conf.lua
-function love.conf(t)
+function love.conf(t) 
   t.identity = nil  -- no save directory
   t.version = "0.9.0" -- runs for löve 0.9.0 (baby inspector) 
   t.console = false -- no console (only ms windows)
